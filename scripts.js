@@ -41,3 +41,74 @@ if (form) {
         form.reset();
     });
 }
+
+const uploadForm = document.getElementById("uploadForm");
+const uploadedPostsContainer = document.getElementById("uploadedPosts");
+
+// Load posts on page load
+document.addEventListener("DOMContentLoaded", () => {
+  loadUploadedPosts();
+});
+
+uploadForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const title = document.getElementById("title").value;
+  const content = document.getElementById("content").value;
+
+  const newPost = { title, content };
+  const existingPosts = JSON.parse(localStorage.getItem("ammiePosts")) || [];
+  existingPosts.push(newPost);
+  localStorage.setItem("ammiePosts", JSON.stringify(existingPosts));
+
+  uploadForm.reset();
+  loadUploadedPosts();
+});
+
+function loadUploadedPosts() {
+  uploadedPostsContainer.innerHTML = "";
+  const posts = JSON.parse(localStorage.getItem("ammiePosts")) || [];
+
+  posts.forEach(post => {
+    const postDiv = document.createElement("div");
+    postDiv.className = "uploaded-post";
+    postDiv.innerHTML = <h3>${post.title}</h3>
+    
+    uploadedPostsContainer.appendChild(postDiv);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("uploadForm");
+    const workContainer = document.getElementById("workContainer");
+  
+    let uploads = JSON.parse(localStorage.getItem("ammieUploads")) || [];
+  
+    function renderUploads() {
+      workContainer.innerHTML = "";
+      uploads.forEach((upload, index) => {
+        const div = document.createElement("div");
+        div.className = "uploaded-post";
+        div.innerHTML = `
+          <h3>${upload.title}</h3>
+          <p>${upload.content}</p>
+        `;
+        workContainer.appendChild(div);
+      });
+    }
+  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+  
+      const title = document.getElementById("title").value.trim();
+      const content = document.getElementById("content").value.trim();
+  
+      if (title && content) {
+        uploads.push({ title, content });
+        localStorage.setItem("ammieUploads", JSON.stringify(uploads));
+        renderUploads();
+        form.reset();
+      }
+    });
+  
+    renderUploads();
+  });

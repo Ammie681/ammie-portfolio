@@ -222,3 +222,85 @@ button {
 .social-icons img:hover {
   transform: scale(1.2);
 }
+
+.section {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1, header p {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #workGallery {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 0;
+  font-size: 1.5rem;
+}
+
+.social-icons a {
+  color: var(--accent-green);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: white;
+}
+#uploadSection form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+#uploadSection textarea {
+  min-height: 150px;
+}
+
+.uploaded-post {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-left: 4px solid #00ffcc; /* Ammie green */
+  margin: 1rem auto;
+  max-width: 600px;
+}

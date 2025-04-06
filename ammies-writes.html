@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ammie’s Writes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">About Me</a>
+    <a href="proof-of-work.html">Proof of Work</a>
+    <a href="contact.html">Let’s Connect</a>
+    <a href="ammies-writes.html" class="active">Ammie’s Writes</a>
+  </nav>
+
+  <header>
+    <h1>Ammie’s Writes</h1>
+    <p>This is where I upload and showcase my original content pieces.</p>
+  </header>
+
+  <section id="uploadSection">
+    <h2>Upload New Post</h2>
+    <form id="uploadForm">
+      <input type="text" id="title" placeholder="Title" required />
+      <textarea id="content" placeholder="Write your post..." rows="6" required></textarea>
+      <button type="submit">Save</button>
+    </form>
+  </section>
+
+  <section id="postsSection">
+    <h2>My Writings</h2>
+    <div id="postsContainer"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Adewuyi Aminat | All rights reserved</p>
+  </footer>
+
+  <script src="ammies-writes.js"></script>
+</body>
+</html>
